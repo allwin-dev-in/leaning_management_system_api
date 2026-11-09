@@ -1,0 +1,39 @@
+#===ADMIN===#
+
+#Api cll for adding admin user
+###
+POST http://127.0.0.1:8000/course/admin/
+Content-Type: application/json
+
+{
+    "username":"adminuser",
+    "email":"adminuser@gmail.com",
+    "password":"adminuser@123"
+}
+
+#===Course===#
+#Api call for adding course
+###
+POST http://127.0.0.1:8000/course/add/
+Content-Type: application/json
+Authorization: Basic adminuser:adminuser@123
+
+{
+    "title": "Advanced SQL and Database Performance Tuning",
+    "description": "Write complex queries, design optimized relational database schemas, index tables, and tune performance for large-scale databases.",
+    "duration": "6 Weeks",
+    "trainer": "Amit Deshmukh",
+    "language": "English",
+    "price": 27500
+  }
+#Api call for listing Courses
+###
+GET http://127.0.0.1:8000/course/all/?title=and
+Accept: application/json
+Authorization: Basic adminuser:adminuser@123
+
+#APi call for Retriving id=1
+###
+GET http://127.0.0.1:8000/course/1/
+Accept: application/json
+Authorization: Basic adminuser:adminuser@123
